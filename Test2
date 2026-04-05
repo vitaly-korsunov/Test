@@ -1,0 +1,15 @@
+public ListNode ReverseList(ListNode head)
+{
+    ListNode prev = null;
+    ListNode current = head;
+
+    while (current != null)
+    {
+        ListNode next = current.next; // שומרים את הבא
+        current.next = prev;          // הופכים את הכיוון
+        prev = current;               // מזיזים prev קדימה
+        current = next;               // ממשיכים
+    }
+
+    return prev;
+}
