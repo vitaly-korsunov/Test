@@ -1,0 +1,30 @@
+class Solution
+{
+    public int[] solution(string R, int[] V)
+    {
+        int balanceA = 0;
+        int balanceB = 0;
+
+        int minA = 0;
+        int minB = 0;
+
+        for (int i = 0; i < V.Length; i++)
+        {
+            if (R[i] == 'A')
+            {
+                balanceA += V[i];
+                balanceB -= V[i];
+            }
+            else // 'B'
+            {
+                balanceA -= V[i];
+                balanceB += V[i];
+            }
+
+            minA = Math.Min(minA, balanceA);
+            minB = Math.Min(minB, balanceB);
+        }
+
+        return new int[] { -minA, -minB };
+    }
+}
